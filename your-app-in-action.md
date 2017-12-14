@@ -2,7 +2,7 @@
 
 Time to run the app and see how the whole thing in action
 
-Run the following commands in the Terminal:
+Run the following command in the Terminal:
 
 ```bash
 pulp build --to index.js
