@@ -1,3 +1,4 @@
-# First Chapter
+# Project Setup
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+Information about packages to install and base setup of the ToDo app go here.
+
