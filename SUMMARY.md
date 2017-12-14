@@ -7,5 +7,5 @@
   * [How to make API calls?](presto-components/api.md)
     * Handling API Errors
   * [Managing Local Storage](presto-components/api/managing-local-storage.md)
-* Your App in Action
+* [Your App in Action](your-app-in-action.md)
 

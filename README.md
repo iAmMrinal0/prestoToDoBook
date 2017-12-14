@@ -8,5 +8,5 @@ This is a guide for anyone who wants to understand how to write a simple ToDo ap
 
 ## What will you learn?
 
-You will learn the various methods Presto provides you to create a basic application.
+You will learn the various methods Presto provides to create a basic application.
 
