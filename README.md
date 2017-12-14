@@ -4,7 +4,8 @@ This is a guide for anyone who wants to understand how to write a simple ToDo ap
 
 ## Prerequisites
 
-1. 
+1. ## 
+
 ## What will you learn?
 
 You will learn the various methods Presto provides you to create a basic application.
