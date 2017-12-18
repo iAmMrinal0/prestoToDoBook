@@ -35,7 +35,7 @@ data MainScreenState
   | MainScreenError String
 ```
 
- If we look at `app.js`, specifically at the `handleScreenAction` function, we will notice the various constructors we defined as the type are matched.
+If we look at `app.js`, specifically at the `handleScreenAction` function, we will notice the various constructors we defined as the type are matched.
 
 ```js
 const handleScreenAction = (state) => {
@@ -55,5 +55,5 @@ const handleScreenAction = (state) => {
 }
 ```
 
-Notice how we match every 
+
 
