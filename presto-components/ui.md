@@ -23,5 +23,37 @@ appFlow state = do
     RemoveTodo id -> appFlow (MainScreenDeleteTodo id)
 ```
 
-The `case` block is where we handle what happens for every action we receive; like for `AddTodo` we call the `addTodoFlow` which handles adding a todo item to the screen.
+The `case` block is where we handle what happens for every action we receive; like for `AddTodo` we call the `addTodoFlow` which handles adding a todo item to the screen whereas for `RemoveTodo` we call the same appFlow with a different constructor that is `MainScreenDeleteTodo`. These are matched from:
+
+```haskell
+data MainScreen = MainScreen MainScreenState
+
+data MainScreenState
+  = MainScreenInit
+  | MainScreenAddTodo String String
+  | MainScreenDeleteTodo String
+  | MainScreenError String
+```
+
+ If we look at `app.js`, specifically at the `handleScreenAction` function, we will notice the various constructors we defined as the type are matched.
+
+```js
+const handleScreenAction = (state) => {
+  switch (state.tag) {
+    case "MainScreenInit": initApp();break;
+    case "MainScreenAddTodo":
+      appendChild(state.contents);
+      break;
+    case "MainScreenDeleteTodo":
+      removeChild(state.contents);
+      break;
+    case "MainScreenError":
+      console.log('This is the error: ', state.contents)
+      break
+    default: console.log("Invalid Tag Passed: ", state.tag);
+  }
+}
+```
+
+Notice how we match every 
 
