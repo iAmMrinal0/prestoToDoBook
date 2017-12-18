@@ -45,3 +45,5 @@ Right (TimeResp scc) -> appFlow (MainScreenAddToDo str scc)
 
 We match the response to our expected type that is `TimeResp` and our expected response value is the variable `scc`. So now we send the Todo item value and the response string to the screen with a different constructor and call the `appFlow` again.
 
+What happens when we encounter an error from the API for some reason? We will discuss this in our next chapter.
+
