@@ -1,6 +1,6 @@
 ## Handling API Errors
 
-Whenever we have an input or output operation, there are chances that we can encounter an error, similarly, here we have a network call and this could result in an error. So let's see how we can handle errors when an API fails or doesn't go as we expected.
+Whenever we have an input or output operation, there are chances that we can encounter an error. Similarly, here we have a network call and this could result in an error. So let's see how we can handle errors when an API fails or doesn't go as we expected.
 
 ```haskell
 resp <- callAPI (Headers []) TimeReq
