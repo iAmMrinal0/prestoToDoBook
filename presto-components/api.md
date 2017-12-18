@@ -34,13 +34,13 @@ We use a method provided by Presto which is `callAPI` which takes the required h
 ```haskell
 case resp of
   Left err -> appFlow MainScreenInit
-  Right (TimeResp scc) -> appFlow (MainScreenAddToDo str scc)
+  Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
 ```
 
 Currently, we are not concerned with errors so our focus is on the \`Right of the response.
 
 ```haskell
-Right (TimeResp scc) -> appFlow (MainScreenAddToDo str scc)
+Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
 ```
 
 We match the response to our expected type that is `TimeResp` and our expected response value is the variable `scc`. So now we send the Todo item value and the response string to the screen with a different constructor and call the `appFlow` again.

@@ -6,7 +6,7 @@ Whenever we have an input or output operation, there are chances that we can enc
 resp <- callAPI (Headers []) TimeReq
 case resp of
   Left err -> appFlow MainScreenInit
-  Right (TimeResp scc) -> appFlow (MainScreenAddToDo str scc)
+  Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
 ```
 
 We saw this code in the previous chapter and only saw how the success is handled. In our case matches, there's a `Left` and a `Right`, `Right` is our success and `Left` is our error. Currently, in our example, though we have handled `Left` we don't do anything with the error. We ignore it and restart the app with the `MainScreenInit` constructor.
