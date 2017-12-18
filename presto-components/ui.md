@@ -1,6 +1,6 @@
 ## Handling UI Actions
 
-We handle actions from the screen by defining types for expected types. In our case, the possible actions could be:
+We handle actions from the screen by defining types for expected actions. In our case, the possible actions could be:
 
 * Adding a Todo item
 * Deleting a Todo item
