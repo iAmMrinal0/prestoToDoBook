@@ -11,9 +11,9 @@ This is a guide for anyone who wants to understand how to write a simple Todo ap
 
 You will learn the various methods Presto provides to create a basic application.
 
-# Project Setup
+## Project Setup
 
-Information about packages to install and base setup of the Todo app go here. Clone [this](https://github.com/iAmMrinal0/prestoExample) repo and install packages using:
+Clone [this](https://github.com/iAmMrinal0/prestoExample) repo and install packages using:
 
 ```
 $ npm install
