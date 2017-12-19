@@ -15,7 +15,7 @@ If you notice, after the type declarations we have an instance defined. This is 
 
 ```haskell
 instance getTimeReq :: RestEndpoint TimeReq TimeResp where
-  makeRequest _ headers = defaultMakeRequest_ GET ("http://localhost:3000") headers
+  makeRequest _ headers = defaultMakeRequest_ GET "http://localhost:3000" headers
   decodeResponse body = defaultDecodeResponse body
 ```
 
@@ -23,13 +23,13 @@ instance getTimeReq :: RestEndpoint TimeReq TimeResp where
 * URL: `http://localhost:3000` 
 * Headers: `headers`
 
-Now we will look at how to call the API. We do that in `src/Main.purs` in the \`addTodoFlow
+Now we will look at how to call the API. We do that in `src/Main.purs` in the `addTodoFlow`
 
 ```haskell
 resp <- callAPI (Headers []) TimeReq
 ```
 
-We use a method provided by Presto which is `callAPI` which takes the required headers with the required body/data as its argument. In our case, as we don't have a body for the API, we will just pass the request type i.e. `TimeReq` . Following the API call is how we handle the response.
+We use a method provided by Presto which is `callAPI` that takes the required headers with the required body/data as its argument. In our case, as we don't have a body for the API, we will just pass the request type i.e. `TimeReq`. Following is how we handle the response.
 
 ```haskell
 case resp of
@@ -37,7 +37,7 @@ case resp of
   Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
 ```
 
-Currently, we are not concerned with errors so our focus is on the \`Right of the response.
+Currently, we are not concerned with errors so our focus is on the `Right` of the response.
 
 ```haskell
 Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
