@@ -44,7 +44,7 @@ newtype UpdateRes = UpdateRes
   }
 ```
 
-And it's instance is defined as:
+And its instance is defined as:
 
 ```haskell
 instance makeUpdateReq :: RestEndpoint UpdateReq UpdateRes where
