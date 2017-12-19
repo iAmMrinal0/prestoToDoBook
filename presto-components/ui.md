@@ -23,7 +23,7 @@ appFlow state = do
     RemoveTodo id -> appFlow (MainScreenDeleteTodo id)
 ```
 
-The `case` block is where we handle what happens for every action we receive; like for `AddTodo` we call the `addTodoFlow` which handles adding a todo item to the screen whereas for `RemoveTodo` we call the same appFlow with a different constructor that is `MainScreenDeleteTodo`. These are matched from:
+The `case` block is where we handle what happens for every action we receive; like for `AddTodo` we call the `addTodoFlow` which handles adding a todo item to the screen whereas for `RemoveTodo` we call the same `appFlow` with a different constructor that is `MainScreenDeleteTodo`. These are matched from:
 
 ```haskell
 data MainScreen = MainScreen MainScreenState
@@ -35,7 +35,7 @@ data MainScreenState
   | MainScreenError String
 ```
 
-If we look at `app.js`, specifically at the `handleScreenAction` function, we will notice the various constructors we defined as the type are matched.
+If we look at `app.js`, specifically at the `handleScreenAction` function, we will notice the various constructors we defined as the type, are matched.
 
 ```js
 const handleScreenAction = (state) => {
