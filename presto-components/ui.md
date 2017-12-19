@@ -49,10 +49,16 @@ const handleScreenAction = (state) => {
   switch (state.tag) {
     case "MainScreenInit": initApp();break;
     case "MainScreenAddTodo":
-      appendChild(state.contents);
+      addTodo(state.contents);
       break;
     case "MainScreenDeleteTodo":
-      removeChild(state.contents);
+      deleteTodo(state.contents);
+      break;
+    case "MainScreenEditTodo":
+      editTodo(state.contents)
+      break;
+    case "MainScreenUpdateTodo":
+      updateTodo(state.contents)
       break;
     case "MainScreenError":
       console.log('This is the error: ', state.contents)
