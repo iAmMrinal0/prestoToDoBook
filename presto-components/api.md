@@ -93,7 +93,10 @@ updateTodoFlow str id = do
     Right (UpdateRes {response: str}) -> appFlow (MainScreenUpdateTodo str)
 ```
 
-In this request, we have a request body which we need to send and hence after our type name `UpdateReq` we have our payload.
+In this request, we have two components:
+
+* Header: defined as `Headers` and an array of individual `Header`
+* Request body: defined as `UpdateReq str id`
 
 What happens when we encounter an error from the API for some reason? We will discuss this in our next chapter.
 
