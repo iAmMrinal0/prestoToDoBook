@@ -14,3 +14,12 @@ This is when you need something to store temporarily and don't want to persist i
 
 
 
+### Local Storage
+
+This is when you need to persist data after app restarts or reloads, like login tokens, registration tokes, or any app data. Similar to state storage, there are two methods to handle local storage too.
+
+* `loadS`: Gets a string from local storage with the key you pass
+* `saveS`: Stores a value in the local storage with the key you pass
+
+
+
