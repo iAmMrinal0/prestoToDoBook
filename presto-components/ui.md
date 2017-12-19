@@ -12,6 +12,8 @@ And now, if we look at `src/Types.purs` we can see the types defined for our scr
 data MainScreenAction
   = AddTodo String
   | RemoveTodo String
+  | EditTodo String
+  | UpdateTodo String String
 ```
 
 So our screen has to trigger an action called `AddTodo` or `RemoveTodo` with an argument that's a `String` so that it matches the possible actions we have defined. We match the actions in our `appFlow` in `src/Main.purs`
