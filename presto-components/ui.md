@@ -24,6 +24,8 @@ appFlow state = do
   case action of
     AddTodo str -> addTodoFlow str
     RemoveTodo id -> appFlow (MainScreenDeleteTodo id)
+    EditTodo id -> appFlow (MainScreenEditTodo id)
+    UpdateTodo str id -> appFlow (MainScreenUpdateTodo str id)
 ```
 
 The `case` block is where we handle what happens for every action we receive; like for `AddTodo` we call the `addTodoFlow` which handles adding a todo item to the screen whereas for `RemoveTodo` we call the same `appFlow` with a different constructor that is `MainScreenDeleteTodo`. These are matched from:
