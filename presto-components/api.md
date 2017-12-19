@@ -33,7 +33,7 @@ We use a method provided by Presto which is `callAPI` that takes the required he
 
 ```haskell
 case resp of
-  Left err -> appFlow MainScreenInit
+  Left err -> appFlow (MainScreenError (show err))
   Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
 ```
 
