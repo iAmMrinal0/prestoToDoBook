@@ -11,7 +11,7 @@ newtype TimeResp = TimeResp
   }
 ```
 
-Here, our request type is just a constructor called `TimeReq` whereas our response type is `TimeResp` which is an object and the fields:
+Here, our request type is just a constructor called `TimeReq` whereas our response type is `TimeResp` which is an object and the fields are:
 
 * code - HTTP Status code
 * status - Success or Failure
