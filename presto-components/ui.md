@@ -5,6 +5,7 @@ We handle actions from the screen by defining types for expected actions. In our
 * Adding a Todo item
 * Deleting a Todo item
 * Editing a Todo item
+* Updating a Todo item
 
 And now, if we look at `src/Types.purs` we can see the types defined for our screen actions:
 

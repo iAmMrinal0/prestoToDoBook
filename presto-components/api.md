@@ -4,10 +4,18 @@ For our example, we have implemented a mock server which just returns the curren
 
 ```haskell
 data TimeReq = TimeReq
-data TimeResp = TimeResp String
+newtype TimeResp = TimeResp
+  { code :: Int
+  , status :: String
+  , response :: String
+  }
 ```
 
-Here, our request type is just a constructor called `TimeReq` whereas our response type is `TimeResp` has a `String` with it.
+Here, our request type is just a constructor called `TimeReq` whereas our response type is `TimeResp` which is an object and the fields:
+
+* code - HTTP Status code
+* status - Success or Failure
+* response - Our actual expected response
 
 #### Understanding the instance:
 
@@ -15,12 +23,12 @@ If you notice, after the type declarations we have an instance defined. This is 
 
 ```haskell
 instance getTimeReq :: RestEndpoint TimeReq TimeResp where
-  makeRequest _ headers = defaultMakeRequest_ GET "http://localhost:3000" headers
+  makeRequest _ headers = defaultMakeRequest_ GET "http://localhost:3000/time" headers
   decodeResponse body = defaultDecodeResponse body
 ```
 
 * Method: `GET`
-* URL: `http://localhost:3000` 
+* URL: `http://localhost:3000/time` 
 * Headers: `headers`
 
 Now we will look at how to call the API. We do that in `src/Main.purs` in the `addTodoFlow`
@@ -44,6 +52,10 @@ Right (TimeResp scc) -> appFlow (MainScreenAddTodo str scc)
 ```
 
 We match the response to our expected type that is `TimeResp` and our expected response value is the variable `scc`. So now we send the Todo item value and the response string to the screen with a different constructor and call the `appFlow` again.
+
+### How about POST requests?
+
+If we come a bit down, we can find another type
 
 What happens when we encounter an error from the API for some reason? We will discuss this in our next chapter.
 
