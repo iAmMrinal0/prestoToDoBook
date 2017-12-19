@@ -37,6 +37,8 @@ data MainScreenState
   = MainScreenInit
   | MainScreenAddTodo String String
   | MainScreenDeleteTodo String
+  | MainScreenEditTodo String
+  | MainScreenUpdateTodo String String
   | MainScreenError String
 ```
 
