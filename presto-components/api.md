@@ -31,7 +31,35 @@ instance getTimeReq :: RestEndpoint TimeReq TimeResp where
 * URL: `http://localhost:3000/time` 
 * Headers: `headers`
 
-Now we will look at how to call the API. We do that in `src/Main.purs` in the `addTodoFlow`
+#### How about POST requests?
+
+If we come a bit down, we can find another set of types defined:
+
+```haskell
+data UpdateReq = UpdateReq String String
+newtype UpdateRes = UpdateRes
+  { code :: Int
+  , status :: String
+  , response :: Array String
+  }
+```
+
+And it's instance is defined as:
+
+```haskell
+instance makeUpdateReq :: RestEndpoint UpdateReq UpdateRes where
+  makeRequest reqBody headers = defaultMakeRequest POST "http://localhost:3000/update" headers reqBody
+  decodeResponse body = defaultDecodeResponse body
+```
+
+* Method: `POST` 
+* URL: `http://localhost:3000/update` 
+* Headers: `headers` 
+* Request body: `reqBody`
+
+So far we have only defined what should happen when we call the API, but we haven't performed the API call yet.
+
+Let's look at how to do that for our first `GET` request. In `src/Main.purs`, if we look at `addTodoFlow`
 
 ```haskell
 resp <- callAPI (Headers []) TimeReq
@@ -53,9 +81,19 @@ Right (TimeResp {response: scc}) -> appFlow (MainScreenAddTodo str scc)
 
 We match the response to our expected type that is `TimeResp` and our expected response value is the variable `scc`. So now we send the Todo item value and the response string to the screen with a different constructor and call the `appFlow` again.
 
-### How about POST requests?
+### POST Request with Headers
 
-If we come a bit down, we can find another type
+Similarly, for our other API call which is a `POST` request, the usage is defined in `updateTodoFlow`
+
+```haskell
+updateTodoFlow str id = do
+  resp <- callAPI (Headers [Header "Content-Type" "application/json"]) (UpdateReq str id)
+  case resp of
+    Left err -> appFlow (MainScreenError (show err))
+    Right (UpdateRes {response: str}) -> appFlow (MainScreenUpdateTodo str)
+```
+
+In this request, we have a request body which we need to send and hence after our type name `UpdateReq` we have our payload.
 
 What happens when we encounter an error from the API for some reason? We will discuss this in our next chapter.
 
